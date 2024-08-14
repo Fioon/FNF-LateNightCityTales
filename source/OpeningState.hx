@@ -35,7 +35,7 @@ class OpeningState extends MusicBeatState
     }
     override function update(elapsed:Float)
     {
-        if((FlxG.keys.justPressed.ESCAPE||FlxG.keys.justPressed.ENTER))
+        if((FlxG.keys.justPressed.ESCAPE||FlxG.keys.justPressed.ENTER||FlxG.android.justReleased.BACK))
         {
             opening.onVLCComplete();
         }
