@@ -19,6 +19,12 @@
       "url": "https://github.com/MaysLastPlay77/extension-androidtools"
     },
     {
+      "name": "hxCodec",
+      "type": "git",
+      "ref": "main",
+      "url": "https://github.com/SPLCoding/hxCodec-but-it-works-xd"
+    },
+    {
       "name": "flixel",
       "type": "haxelib",
       "version": "4.11.0"
