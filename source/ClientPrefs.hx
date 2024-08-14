@@ -27,9 +27,11 @@ class ClientPrefs {
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
-	public static var controllerMode:Bool = false;
+	public static var controllerMode:Bool = #if android true #else false #end;
 	public static var hitsoundVolume:Float = 0;
 	public static var pauseMusic:String = 'Tea Time';
+	public static var hitboxmode:String = 'Classic';  //starting new way to change between hitboxes yay
+        public static var hitboxalpha:Float = 0.2; //someone request this lol
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -124,6 +126,8 @@ class ClientPrefs {
 		FlxG.save.data.controllerMode = controllerMode;
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
+		FlxG.save.data.hitboxmode = hitboxmode;
+                FlxG.save.data.hitboxalpha = hitboxalpha;
 	
 		FlxG.save.flush();
 
@@ -248,6 +252,13 @@ class ClientPrefs {
 		{
 			FlxG.sound.muted = FlxG.save.data.mute;
 		}
+
+		 if(FlxG.save.data.hitboxmode != null) {
+                    hitboxmode = FlxG.save.data.hitboxmode;
+                }
+        if(FlxG.save.data.hitboxalpha != null) {
+            hitboxalpha = FlxG.save.data.hitboxalpha;
+        }
 
 		var save:FlxSave = new FlxSave();
 		save.bind('controls_v2', 'ninjamuffin99');
