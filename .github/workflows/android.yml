@@ -39,7 +39,7 @@ jobs:
       - name: Installing Libraries
         run: |
           haxelib setup ~/haxelib
-          haxelib install hxcpp 4.2.1 > /dev/null
+          haxelib install hxcpp > nul
           haxelib install lime 7.9.0
           haxelib install openfl 9.1.0
           haxelib --never install flixel 4.11.0
