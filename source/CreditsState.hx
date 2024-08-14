@@ -219,12 +219,16 @@ class CreditsState extends MusicBeatState
 	{
 			super.create();
 			init();
+		        #if android
+                        addVirtualPad(LEFT_RIGHT, B);
+                        addPadCamera();
+                        #end
 	}
 	override function update(elapsed:Float)
 	{
 		filters[0] = new BlurFilter(BlurX,BlurY,openfl.filters.BitmapFilterQuality.LOW);
 		
-		if(controls.UI_RIGHT_P&&!animPlaying)
+		if(controls.UI_RIGHT&&!animPlaying)
 		{
 			if(creditOperand>0)
 			creditOperand--;
@@ -236,7 +240,7 @@ class CreditsState extends MusicBeatState
 
 		}
 
-		if(controls.UI_LEFT_P&&!animPlaying)
+		if(controls.UI_LEFT&&!animPlaying)
 		{
 			if(creditOperand<creditsName.length-1)
 			creditOperand++;
