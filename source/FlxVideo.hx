@@ -14,7 +14,7 @@ class FlxVideo extends FlxBasic {
 	#if VIDEOS_ALLOWED
 	public var finishCallback:Void->Void = null;
 	
-	#if desktop
+	#if android
 	public static var vlcBitmap:VlcBitmap;
 	#end
 
@@ -67,7 +67,7 @@ class FlxVideo extends FlxBasic {
 		#end
 	}
 
-	#if desktop
+	#if android
 	function checkFile(fileName:String):String
 	{
 		var pDir = "";
