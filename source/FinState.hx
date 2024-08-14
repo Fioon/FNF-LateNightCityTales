@@ -18,7 +18,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-import FlxVideo;
+import VideoHandler as MP4Handler;
 
 #if MODS_ALLOWED
 import sys.FileSystem;
@@ -31,7 +31,7 @@ using StringTools;
 class FinState extends MusicBeatState
 {
     var thanksforplaying:FlxSprite;
-    var fin:FlxVideo;
+    var fin:MP4Handler;
 
     var jukeBoxTag:FlxSprite;
     var jukeBox:FlxSprite;
@@ -67,8 +67,9 @@ class FinState extends MusicBeatState
         jukeBoxSubText.alignment=LEFT;
         add(jukeBoxSubText);
 
-        fin = new FlxVideo(Paths.video("final"));
-        fin.finishCallback=function()
+        fin = new MP4Handler();
+fin.playVideo(Paths.video("final"));
+        fin.finishCallback = function()
         {
             FlxTween.tween(thanksforplaying,{alpha:1},1.5,{onComplete:function(twn:FlxTween)
 				{
