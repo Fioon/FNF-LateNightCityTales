@@ -424,6 +424,11 @@ class TitleState extends MusicBeatState
 		downText.cameras=[camUI];
 		upText.cameras=[camUI];
 		ZC.cameras=[camUI];
+
+		#if android
+                addVirtualPad(LEFT_RIGHT, A_B);
+                addPadCamera();
+                #end    
 	}
 
 	function startIntro()
@@ -591,14 +596,14 @@ class TitleState extends MusicBeatState
 
 			}
 
-			if((controls.UI_LEFT_P&&!isTransing)||(controls.UI_DOWN_P&&!isTransing))
+			if((controls.UI_LEFT&&!isTransing)||(controls.UI_DOWN_P&&!isTransing))
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				numberOfMenuItems--;
 				if(numberOfMenuItems<0)				
 					numberOfMenuItems = 3;								
 			}
-			if((controls.UI_RIGHT_P&&!isTransing)||(controls.UI_UP_P&&!isTransing))
+			if((controls.UI_RIGHT&&!isTransing)||(controls.UI_UP_P&&!isTransing))
 			{				
 				numberOfMenuItems++;
 				FlxG.sound.play(Paths.sound('scrollMenu'));				
