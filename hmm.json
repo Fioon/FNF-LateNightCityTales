@@ -9,7 +9,7 @@
     {
       "name": "linc_luajit",
       "type": "git",
-      "ref": "main",
+      "ref": "master",
       "url": "https://github.com/AndreiRudenko/linc_luajit"
     },
     {
@@ -41,7 +41,7 @@
     {
       "name": "hscript-ex",
       "type": "git",
-      "ref": "main",
+      "ref": "master",
       "url": "https://github.com/ianharrigan/hscript-ex"
     },
     {
