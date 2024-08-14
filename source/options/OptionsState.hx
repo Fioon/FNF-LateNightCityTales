@@ -29,12 +29,15 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
+	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay', 'Hitbox Settings'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 
 	function openSelectedSubstate(label:String) {
+		#if android
+		removeVirtualPad();
+		#end
 		switch(label) {
 			case 'Note Colors':
 				openSubState(new options.NotesSubState());
@@ -46,6 +49,8 @@ class OptionsState extends MusicBeatState
 				openSubState(new options.VisualsUISubState());
 			case 'Gameplay':
 				openSubState(new options.GameplaySettingsSubState());
+			case 'Hitbox Settings':
+				openSubState(new options.HitboxSettingsSubState());
 			case 'Adjust Delay and Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 		}
@@ -86,6 +91,10 @@ class OptionsState extends MusicBeatState
 		changeSelection();
 		ClientPrefs.saveSettings();
 
+		#if android
+		addVirtualPad(UP_DOWN, A_B_E);
+		#end
+			
 		super.create();
 	}
 
@@ -118,6 +127,9 @@ class OptionsState extends MusicBeatState
 				persistentUpdate = false;
 				openSubState(new GameplayChangersSubstate());
 			}
+
+		if (_virtualpad.buttonE.justPressed)
+			MusicBeatState.switchState(new android.AndroidControlsMenu());
 	}
 	
 	function changeSelection(change:Int = 0) {
