@@ -1729,7 +1729,8 @@ class PlayState extends MusicBeatState
 			bg.cameras = [camHUD];
 			add(bg);
 
-			(new FlxVideo(fileName)).finishCallback = function() {
+			var sua:FlxVideo = new FlxVideo(fileName);
+			sua.finishCallback = function() {
 				remove(bg);
 				startAndEnd();
 			}
