@@ -39,7 +39,7 @@ class OpeningState extends MusicBeatState
     {
         if((FlxG.keys.justPressed.ESCAPE||FlxG.keys.justPressed.ENTER||FlxG.android.justReleased.BACK))
         {
-            FlxVideo.onVLCComplete();
+            //FlxVideo.onVLCComplete();
         }
     }
 }
