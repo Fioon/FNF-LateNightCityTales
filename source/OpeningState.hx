@@ -16,22 +16,24 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-import FlxVideo;
+import VideoHandler as MP4Handler;
 
 class OpeningState extends MusicBeatState
 {
-    var opening:FlxVideo;
+    var opening:MP4Handler;
 
     override function create()
     {
         super.create();
         FlxG.sound.music.volume=0;
 
-        opening = new FlxVideo(Paths.video("Opening"));
-        opening.finishCallback=function() 
-        {
-            FlxG.switchState(new LoadingState(new PlayState(),true,'nightmare'));
-        }
+        opening = new MP4Handler();
+		opening.playVideo(Paths.video("Opening"));
+		opening.finishCallback = function()
+		{
+			FlxG.switchState(new LoadingState(new PlayState(),true,'nightmare'));
+			return;
+		}
     }
     override function update(elapsed:Float)
     {
