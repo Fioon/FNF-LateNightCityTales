@@ -65,6 +65,7 @@ import FunkinLua;
 import DialogueBoxPsych;
 import flixel.addons.editors.pex.FlxPexParser;
 import flixel.addons.text.FlxTypeText;
+import VideoHandler as MP4Handler;
 #if sys
 import sys.FileSystem;
 #end
@@ -1729,8 +1730,9 @@ class PlayState extends MusicBeatState
 			bg.cameras = [camHUD];
 			add(bg);
 
-			var sua:FlxVideo = new FlxVideo(fileName);
-			sua.finishCallback = function() {
+			var video:MP4Handler = new MP4Handler();
+			video.playVideo(fileName);
+			video.finishCallback = function() {
 				remove(bg);
 				startAndEnd();
 			}
