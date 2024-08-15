@@ -1,7 +1,7 @@
 package;
 
 import flixel.graphics.FlxGraphic;
-#if desktop
+#if windows
 import Discord.DiscordClient;
 #end
 import Section.SwagSection;
