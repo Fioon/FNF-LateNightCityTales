@@ -265,6 +265,18 @@ class TitleState extends MusicBeatState
 		pressedCancel = FlxG.keys.justPressed.ESCAPE || controls.BACK;
 		pressedEnter = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
+		  #if android
+                        var justTouched:Bool = false;
+
+		        for (touch in FlxG.touches.list)
+		        {
+			        if (touch.justPressed)
+			        {
+				        justTouched = true;
+			        }
+		        }
+		        #end
+				
 		if (FlxG.sound.music != null)
 		Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
@@ -427,7 +439,7 @@ class TitleState extends MusicBeatState
 
 		#if android
                 addVirtualPad(LEFT_RIGHT, A_B);
-                addPadCamera();
+		_virtualpad.alpha = 0;
                 #end    
 	}
 
@@ -496,11 +508,10 @@ class TitleState extends MusicBeatState
 	}
 
 	function titleUpdate():Void
-	{
-			
+	{	
 		if (!transitioning && skippedIntro)
 			{
-				if(pressedEnter&&!isTransing)
+				if(justTouched&&!isTransing)
 					{
 						isTransing=true;
 						isMain=true;
@@ -535,13 +546,14 @@ class TitleState extends MusicBeatState
 							//MusicBeatState.switchState(new TitleState());
 							FlxTween.tween(FlxG.camera.scroll,{y:1120},3,{ease: FlxEase.expoOut});
 							FlxTween.tween(logoBl,{alpha:0},1);
+							_virtualpad.alpha = 1;
 						});
 					}
 				}
 
 
 
-			if (pressedEnter && !skippedIntro&&!isTransing)
+			if (justTouched && !skippedIntro&&!isTransing)
 			{
 				skipIntro();
 			}
@@ -586,6 +598,7 @@ class TitleState extends MusicBeatState
 						FlxTween.tween(FlxG.camera.scroll,{y:0},3,{ease: FlxEase.expoOut});
 						FlxTween.tween(downText,{alpha:0},1);
 						FlxTween.tween(upText,{alpha:0},1);
+						_virtualpad.alpha = 0;
 					});
 
 				if (FlxG.keys.anyJustPressed(debugKeys))
@@ -596,14 +609,14 @@ class TitleState extends MusicBeatState
 
 			}
 
-			if((controls.UI_LEFT&&!isTransing)||(controls.UI_DOWN_P&&!isTransing))
+			if((controls.UI_LEFT_P&&!isTransing)||(controls.UI_DOWN_P&&!isTransing))
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				numberOfMenuItems--;
 				if(numberOfMenuItems<0)				
 					numberOfMenuItems = 3;								
 			}
-			if((controls.UI_RIGHT&&!isTransing)||(controls.UI_UP_P&&!isTransing))
+			if((controls.UI_RIGHT_P&&!isTransing)||(controls.UI_UP_P&&!isTransing))
 			{				
 				numberOfMenuItems++;
 				FlxG.sound.play(Paths.sound('scrollMenu'));				
@@ -765,7 +778,8 @@ class TitleState extends MusicBeatState
 	}
 
 	function goToPlaystate(diff:Int):Void
-		{	
+		{
+		try{
 			var songArray:Array<String> = [];
 			var leWeek:Array<Dynamic> = loadedWeek.songs;
 			for (i in 0...leWeek.length) {
@@ -791,6 +805,14 @@ class TitleState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new OpeningState());
 				FreeplayState.destroyFreeplayVocals();
 			});
+		}
+		catch (e:Dynamic)
+		{
+			Application.current.window.alert("An error while loading the Story Mode:\n" + e, "Error!");
+			isTransing=false;
+			LoadingState.loadAndSwitchState(new OpeningState());
+			FreeplayState.destroyFreeplayVocals();
+		}
 			
 		}
 
