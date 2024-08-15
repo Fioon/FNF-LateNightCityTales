@@ -45,18 +45,6 @@
       "version": "2.4.0"
     },
     {
-      "name": "hscript-ex",
-      "type": "git",
-      "ref": "master",
-      "url": "https://github.com/ianharrigan/hscript-ex"
-    },
-    {
-      "name": "hxcpp",
-      "type": "git",
-      "ref": "master",
-      "url": "https://github.com/mcagabe19-stuff/hxcpp"
-    },
-    {
       "name": "openfl",
       "type": "haxelib",
       "version": "9.1.0"
@@ -65,26 +53,6 @@
       "name": "lime",
       "type": "haxelib",
       "version": "7.9.0"
-    },
-    {
-      "name": "flixel-tools",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "tjson",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "hxjsonast",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "hxcpp-debug-server",
-      "type": "haxelib",
-      "version": null
     }
   ]
 }
