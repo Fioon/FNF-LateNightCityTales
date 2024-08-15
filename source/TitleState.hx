@@ -1,6 +1,6 @@
 package;
 
-import cpp.Function;
+//import cpp.Function;
 import flixel.FlxCamera;
 import flixel.addons.ui.interfaces.IFlxUIState;
 import flixel.FlxObject;
