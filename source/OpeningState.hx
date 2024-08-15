@@ -16,7 +16,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-import VideoHandler as MP4Handler;
+import vlc.MP4Handler;
 
 class OpeningState extends MusicBeatState
 {
@@ -26,7 +26,7 @@ class OpeningState extends MusicBeatState
     {
         super.create();
         FlxG.sound.music.volume=0;
-
+    try{
         opening = new MP4Handler();
 		opening.playVideo(Paths.video("Opening"));
 		opening.finishCallback = function()
@@ -34,6 +34,12 @@ class OpeningState extends MusicBeatState
 			FlxG.switchState(new LoadingState(new PlayState(),true,'nightmare'));
 			return;
 		}
+}
+catch (e:Dynamic)
+{
+			Application.current.window.alert("An error while loading the video:\n" + e, "Video Error!");
+FlxG.switchState(new LoadingState(new PlayState(),true,'nightmare'));
+	}
     }
     override function update(elapsed:Float)
     {
