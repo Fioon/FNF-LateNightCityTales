@@ -5,7 +5,7 @@ import flixel.FlxCamera;
 import flixel.addons.ui.interfaces.IFlxUIState;
 import flixel.FlxObject;
 import haxe.Timer;
-#if desktop
+#if windows
 import Discord.DiscordClient;
 import sys.thread.Thread;
 #end
@@ -230,7 +230,7 @@ class TitleState extends MusicBeatState
 			FlxTransitionableState.skipNextTransOut = true;
 			MusicBeatState.switchState(new FlashingState());
 		} else {
-			#if desktop
+			#if windows
 			if (!DiscordClient.isInitialized)
 			{
 				DiscordClient.initialize();
