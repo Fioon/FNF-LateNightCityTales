@@ -264,19 +264,7 @@ class TitleState extends MusicBeatState
 	{
 		pressedCancel = FlxG.keys.justPressed.ESCAPE || controls.BACK;
 		pressedEnter = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
-
-		  #if android
-                        var justTouched:Bool = false;
-
-		        for (touch in FlxG.touches.list)
-		        {
-			        if (touch.justPressed)
-			        {
-				        justTouched = true;
-			        }
-		        }
-		        #end
-				
+		
 		if (FlxG.sound.music != null)
 		Conductor.songPosition = FlxG.sound.music.time;
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
@@ -509,6 +497,18 @@ class TitleState extends MusicBeatState
 
 	function titleUpdate():Void
 	{	
+		#if android
+                        var justTouched:Bool = false;
+
+		        for (touch in FlxG.touches.list)
+		        {
+			        if (touch.justPressed)
+			        {
+				        justTouched = true;
+			        }
+		        }
+		        #end
+				
 		if (!transitioning && skippedIntro)
 			{
 				if(justTouched&&!isTransing)
