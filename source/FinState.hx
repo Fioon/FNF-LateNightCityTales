@@ -18,7 +18,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-import VideoHandler as MP4Handler;
+import vlc.MP4Handler;
 
 #if MODS_ALLOWED
 import sys.FileSystem;
