@@ -21,6 +21,7 @@ class Main extends Sprite
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 	public static var fpsVar:FPS;
+	var infoCounter:Overlay;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -87,6 +88,8 @@ class Main extends Sprite
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
 		#end
+		infoCounter = new Overlay(0, 0);
+		addChild(infoCounter);
 
 		#if html5
 		FlxG.autoPause = false;
