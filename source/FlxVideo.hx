@@ -4,11 +4,9 @@ import openfl.net.NetStream;
 import openfl.events.NetStatusEvent;
 import openfl.media.Video;
 #else
-//import openfl.events.Event;
-//import vlc.VlcBitmap;
-#end
 import openfl.events.Event;
 import vlc.VlcBitmap;
+#end
 import flixel.FlxBasic;
 import flixel.FlxG;
 
@@ -16,7 +14,7 @@ class FlxVideo extends FlxBasic {
 	#if VIDEOS_ALLOWED
 	public var finishCallback:Void->Void = null;
 	
-	#if android
+	#if windows
 	public static var vlcBitmap:VlcBitmap;
 	#end
 
@@ -48,7 +46,7 @@ class FlxVideo extends FlxBasic {
 		});
 		netStream.play(name);
 
-		#elseif android
+		#elseif windows
 		// by Polybius, check out PolyEngine! https://github.com/polybiusproxy/PolyEngine
 
 		vlcBitmap = new VlcBitmap();
@@ -69,7 +67,7 @@ class FlxVideo extends FlxBasic {
 		#end
 	}
 
-	#if android
+	#if windows
 	function checkFile(fileName:String):String
 	{
 		var pDir = "";
