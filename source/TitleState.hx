@@ -253,6 +253,11 @@ class TitleState extends MusicBeatState
 				isTransing=false;
 			});
 
+		#if android
+                addVirtualPad(LEFT_RIGHT, A_B);
+		_virtualpad.alpha = 1;
+                #end    
+
 	}
 
 	var pressedCancel:Bool;
@@ -281,15 +286,18 @@ class TitleState extends MusicBeatState
 		FlxG.watch.addQuick("ThunderSwitch",thunderSwitch);
 		FlxG.watch.addQuick("weeks",WeekData.weeksList);
 
-		if(isTitle)
+		if(isTitle){
 			titleUpdate();
-		
-		if(isMain)
+			_virtualpad.visible = false;
+		}
+		if(isMain){
 			mainUpdate();
-
-		if(isStoryMain)
+			_virtualpad.visible = true;
+		}
+		if(isStoryMain){
 			storyMainUpdate();
-
+			_virtualpad.visible = true;
+		}
 		// if (FlxG.keys.justPressed.ONE)
 		// {
 		// 	MusicBeatState.switchState(new FinState());
@@ -423,12 +431,7 @@ class TitleState extends MusicBeatState
 		rain.cameras=[camUI];
 		downText.cameras=[camUI];
 		upText.cameras=[camUI];
-		ZC.cameras=[camUI];
-
-		#if android
-                addVirtualPad(LEFT_RIGHT, A_B);
-		_virtualpad.alpha = 0;
-                #end    
+		ZC.cameras=[camUI];		
 	}
 
 	function startIntro()
@@ -546,7 +549,7 @@ class TitleState extends MusicBeatState
 							//MusicBeatState.switchState(new TitleState());
 							FlxTween.tween(FlxG.camera.scroll,{y:1120},3,{ease: FlxEase.expoOut});
 							FlxTween.tween(logoBl,{alpha:0},1);
-							_virtualpad.alpha = 1;
+							//_virtualpad.alpha = 1;
 						});
 					}
 				}
@@ -598,7 +601,7 @@ class TitleState extends MusicBeatState
 						FlxTween.tween(FlxG.camera.scroll,{y:0},3,{ease: FlxEase.expoOut});
 						FlxTween.tween(downText,{alpha:0},1);
 						FlxTween.tween(upText,{alpha:0},1);
-						_virtualpad.alpha = 0;
+						//_virtualpad.alpha = 0;
 					});
 
 				if (FlxG.keys.anyJustPressed(debugKeys))
