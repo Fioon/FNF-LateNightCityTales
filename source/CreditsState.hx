@@ -111,7 +111,7 @@ class CreditsState extends MusicBeatState
 
 			movieDots.frames=Paths.getSparrowAtlas("credits/MovieDots","nightmare");
 			movieDots.animation.addByPrefix("play","MovieDots",24,true);
-			movieDots.alpha=1;
+			movieDots.alpha=0;
 			movieDots.blend=LIGHTEN;
 			movieDots.animation.play("play");
 
@@ -228,7 +228,7 @@ class CreditsState extends MusicBeatState
 	{
 		filters[0] = new BlurFilter(BlurX,BlurY,openfl.filters.BitmapFilterQuality.LOW);
 		
-		if(controls.UI_RIGHT&&!animPlaying)
+		if(controls.UI_RIGHT_P&&!animPlaying)
 		{
 			if(creditOperand>0)
 			creditOperand--;
@@ -240,7 +240,7 @@ class CreditsState extends MusicBeatState
 
 		}
 
-		if(controls.UI_LEFT&&!animPlaying)
+		if(controls.UI_LEFT_P&&!animPlaying)
 		{
 			if(creditOperand<creditsName.length-1)
 			creditOperand++;
