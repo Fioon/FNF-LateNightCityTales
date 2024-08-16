@@ -65,8 +65,8 @@ class Overlay extends TextField
 		
 		if (visible)
 		{
-			text = '   ' // set up the text itself
-				+ (displayFps ? times.length + " FPS\n   " : '') // Framerate
+			text = '' // set up the text itself
+				+ (displayFps ? times.length + " FPS\n" : '') // Framerate
 			+ (displayMemory ? '${getInterval(mem)} / ${getInterval(memPeak)}\n' : ''); // Current and Total Memory Usage
 		}
 	}
