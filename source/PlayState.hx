@@ -77,6 +77,7 @@ class PlayState extends MusicBeatState
 {
 	public static var isFinish:Bool = false;
 	public static var EndisFinish:Bool = false;
+	public static var songFinish:Bool = false;
 	
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
@@ -179,7 +180,7 @@ class PlayState extends MusicBeatState
 	
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
-	public static var startingSong:Bool = false;
+	public var startingSong:Bool = false;
 	private var updateTime:Bool = true;
 	public static var changedDifficulty:Bool = false;
 	public static var chartingMode:Bool = false;
@@ -504,6 +505,7 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
+		songFinish = false;
 		EndisFinish = false;
 		isFinish = false;
 		//---------------------------------------------------------------
@@ -3657,6 +3659,7 @@ class PlayState extends MusicBeatState
 		timeTxt.visible = false;
 		canPause = false;
 		endingSong = true;
+		songFinish = true;
 		camZooming = false;
 		inCutscene = false;
 		updateTime = false;
