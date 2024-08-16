@@ -75,6 +75,7 @@ using StringTools;
 
 class PlayState extends MusicBeatState
 {
+	public static var isFinish:Bool = false;
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
@@ -1903,7 +1904,8 @@ class PlayState extends MusicBeatState
 			callOnLuas('onStartCountdown', []);
 			return;
 		}
-
+        var songName:String = Paths.formatToSongPath(SONG.song);
+	if(isFinish==true || songName=='tutorial' || songName=='lonely-sapphire'){
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);
 		if(ret != FunkinLua.Function_Stop) {
@@ -2053,6 +2055,9 @@ class PlayState extends MusicBeatState
 				// generateSong('fresh');
 			}, 5);
 		}
+	}else{
+		return;
+	}
 	}
 
 	public function clearNotesBefore(time:Float)
