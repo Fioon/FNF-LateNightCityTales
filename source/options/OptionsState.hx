@@ -101,9 +101,6 @@ class OptionsState extends MusicBeatState
 	override function closeSubState() {
 		super.closeSubState();
 		ClientPrefs.saveSettings();
-		#if android
-		addVirtualPad(UP_DOWN, A_B_E);
-		#end
 	}
 
 	override function update(elapsed:Float) {
