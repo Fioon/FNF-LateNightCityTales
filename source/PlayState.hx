@@ -65,7 +65,8 @@ import FunkinLua;
 import DialogueBoxPsych;
 import flixel.addons.editors.pex.FlxPexParser;
 import flixel.addons.text.FlxTypeText;
-import vlc.MP4Handler;
+
+import VideoHandler as MP4Handler;
 #if sys
 import sys.FileSystem;
 #end
