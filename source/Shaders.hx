@@ -907,8 +907,8 @@ class BloomShader extends FlxShader{
 	
 	#pragma header
 	
-	uniform float intensity = 0.35;
-	uniform float blurSize = 1.0/512.0;
+	uniform float intensity;
+	uniform float blurSize;
 void main()
 {
    vec4 sum = vec4(0);
