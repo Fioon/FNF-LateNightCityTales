@@ -17,6 +17,7 @@ import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import VideoHandler as MP4Handler;
+import lime.app.Application;
 
 class OpeningState extends MusicBeatState
 {
