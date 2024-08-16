@@ -76,6 +76,8 @@ using StringTools;
 class PlayState extends MusicBeatState
 {
 	public static var isFinish:Bool = false;
+	public static var EndisFinish:Bool = false;
+	
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
@@ -502,6 +504,7 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
+		EndisFinish = false;
 		isFinish = false;
 		//---------------------------------------------------------------
 		//blur
@@ -3686,6 +3689,8 @@ class PlayState extends MusicBeatState
 		var ret:Dynamic = FunkinLua.Function_Continue;
 		#end
 
+	var songName:String = Paths.formatToSongPath(SONG.song);
+	if(EndisFinish==true || isStoryMode==false || songName=='azure-encounter' || songName=='aquaphobia'){
 		if(ret != FunkinLua.Function_Stop && !transitioning) {
 			if (SONG.validScore)
 			{
@@ -3798,6 +3803,9 @@ class PlayState extends MusicBeatState
 			}
 			transitioning = true;
 		}
+	}else{
+		return;
+	}
 	}
 
 	#if ACHIEVEMENTS_ALLOWED
