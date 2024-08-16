@@ -502,6 +502,7 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
+		isFinish = false;
 		//---------------------------------------------------------------
 		//blur
 		filters.push(new BlurFilter());
@@ -1905,7 +1906,7 @@ class PlayState extends MusicBeatState
 			return;
 		}
         var songName:String = Paths.formatToSongPath(SONG.song);
-	if(isFinish==true || songName=='tutorial' || songName=='lonely-sapphire'){
+	if(isFinish==true || isStoryMode==false || songName=='tutorial' || songName=='lonely-sapphire'){
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);
 		if(ret != FunkinLua.Function_Stop) {
