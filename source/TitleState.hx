@@ -256,7 +256,7 @@ class TitleState extends MusicBeatState
 		#if android
                 addVirtualPad(LEFT_RIGHT, A_B);
 		addPadCamera();
-		_virtualpad.alpha = 0.6;
+		_virtualpad.alpha = 0.5;
 		_virtualpad.visible = true;
                 #end
 
