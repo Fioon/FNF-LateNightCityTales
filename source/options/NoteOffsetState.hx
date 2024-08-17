@@ -466,7 +466,7 @@ class NoteOffsetState extends MusicBeatState
 		beatText.visible = !onComboMenu;
 
 		addVirtualPad(onComboMenu ? NONE : LEFT_RIGHT, A_B_C);
-		addVirtualPadCamera();
+		addPadCamera();
 		
 		if(onComboMenu)
 			changeModeText.text = '< Combo Offset (Press Accept to Switch) >';
