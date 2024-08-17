@@ -89,6 +89,7 @@ class NotesSubState extends MusicBeatSubstate
 		add(hsbText);
 
 		changeSelection();
+		addVirtualPad(FULL, A_B);
 	}
 
 	var changingNote:Bool = false;
