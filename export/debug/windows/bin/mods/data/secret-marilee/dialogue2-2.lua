@@ -5,13 +5,10 @@ function onEndSong()
 		setProperty('inCutscene', true);
 		setProperty('isFirstDialogue',false)
 		setProperty('dialogueCount',0)
-
 		setProperty('skipDialogueEndCallback',true)
-
 		preloadAssets()
 		startDialogue('dialogue2-2CN', 'dialog4');
 		allowEnd = true
-
 		return Function_Stop;
 	end
 	return Function_Continue;
