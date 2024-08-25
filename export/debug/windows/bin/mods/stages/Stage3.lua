@@ -58,9 +58,9 @@ function onCreatePostFrontCharacter( )
 	addAnimationByPrefix('MovieDots', 'MovieDots', 'MovieDots', 24, true)
 	scaleObject('MovieDots', 1.1, 1.1);
 	setScrollFactor('MovieDots', 0, 0)
-	addLuaSprite('MovieDots', true)
+	addLuaSprite('MovieDots', false)
 	doTweenColor('MovieDots', 'MovieDots', 'A9A9A9', 0.01, 'linear')
-	doTweenAlpha("MovieDotsA","MovieDots",1,0.01)
+	doTweenAlpha("MovieDotsA","MovieDots",0.5,0.01)
 	setBlendMode('MovieDots','lighten')
 
 	makeLuaSprite('DarkSolidUp', 'DarkSolid', -100, -210);
