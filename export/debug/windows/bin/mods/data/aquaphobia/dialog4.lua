@@ -1,17 +1,17 @@
 local allowCountdown = false
 
-function onStartCountdown()
-	-- Block the first countdown and start a timer of 0.8 seconds to play the dialogue
-	if not allowCountdown and isStoryMode and not seenCutscene then
-		setProperty('inCutscene', true);
+function onCreate()
+if isStoryMode and not allowCountdown then
+        setProperty('inCutscene', true);
 		runTimer('startDialogue', 0.8);
 		allowCountdown = true;
 		preloadAssets()
 		setProperty('isFirstDialogue',true)
-		return Function_Stop;
-	end
-
-	return Function_Continue;
+end
+if getPropertyFromClass('PlayState', 'songFinish') == false then
+    --setPropertyFromClass('PlayState', 'songFinish', true)
+    --restartSong(true);
+end
 end
 
 function onTimerCompleted(tag, loops, loopsLeft)
@@ -116,5 +116,5 @@ function onDialogueFinished()
 		doTweenAlpha('bg2A', 'bg2', 0,.5 ,'cubeOut')
 
 		
-		restartSong(true)
+		--restartSong(true)
 end
