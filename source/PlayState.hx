@@ -1577,11 +1577,11 @@ class PlayState extends MusicBeatState
 				//addShaderToCamera('all', new VCRDistortionEffect(0.0,false,true,false));
 
 
-				addShaderToCamera('camgame', new WaveEffect(5,7,waveFrequency));
+				//addShaderToCamera('camgame', new WaveEffect(5,7,waveFrequency));
 				addShaderToCamera('camgame', new VCRDistortionEffect(0.0,false,true,true));
-				addShaderToCamera('camgame', new BloomEffect(0,0));
-				addShaderToCamera('camgame',new DistortedTVEffect(0.3,0,0,0));
-				addShaderToCamera('camgame', new InvertColorsEffect(true));
+				//addShaderToCamera('camgame', new BloomEffect(0,0));
+				//addShaderToCamera('camgame',new DistortedTVEffect(0.3,0,0,0));
+				//addShaderToCamera('camgame', new InvertColorsEffect(true));
 
 			}
 
