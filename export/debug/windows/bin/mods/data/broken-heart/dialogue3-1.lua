@@ -1,24 +1,21 @@
 local allowCountdown = false
 
-function onStartCountdown()
-	-- Block the first countdown and start a timer of 0.8 seconds to play the dialogue
-	if not allowCountdown and isStoryMode and not seenCutscene then
-	--if not isStoryMode then
-		setProperty('inCutscene', true);
-		runTimer('startDialogue', 0.8);
-		allowCountdown = true;
-		
+function onCreate()
+if isStoryMode and not allowCountdown then
+    allowCountdown = true;
+    setProperty('inCutscene', true);
+	runTimer('startDialogue', 0.8);
 	makeLuaSprite('DarkSolidD', 'DarkSolid', -100, -100);
 	setScrollFactor('DarkSolidD', 0, 0);
 	scaleObject('DarkSolidD', 1.2, 1.2);
 	--setObjectCamera('DarkSolidD','camDialogBack')
-	addLuaSprite('DarkSolidD', true);
-	
+	addLuaSprite('DarkSolidD', true);	
 	setProperty('isFirstDialogue',true)
-	return Function_Stop;
-	end
+end
+end
 
-	return Function_Continue;
+function onStartCountdown()
+	
 end
 
 function onTimerCompleted(tag, loops, loopsLeft)
@@ -65,6 +62,6 @@ function onDialogueFinished()
 		
 		isSkip = getProperty('skipDialogueEndCallback')
 		if isSkip == false then
-		restartSong(true)
+		--restartSong(true)
 		end
 end
