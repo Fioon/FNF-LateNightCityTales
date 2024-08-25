@@ -294,7 +294,7 @@ class TitleState extends MusicBeatState
 		}
 		if(isMain){
 			mainUpdate();
-			_virtualpad.visible = true;
+			//_virtualpad.visible = true;
 		}
 		if(isStoryMain){
 			storyMainUpdate();
@@ -551,7 +551,7 @@ class TitleState extends MusicBeatState
 							//MusicBeatState.switchState(new TitleState());
 							FlxTween.tween(FlxG.camera.scroll,{y:1120},3,{ease: FlxEase.expoOut});
 							FlxTween.tween(logoBl,{alpha:0},1);
-							//_virtualpad.alpha = 1;
+							_virtualpad.visible = true;
 						});
 					}
 				}
