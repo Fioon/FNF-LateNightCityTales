@@ -92,7 +92,7 @@
 	<assets path="assets/nightmare"     library="nightmare"     exclude="*.ogg" if="web"/>
 	<assets path="assets/nightmare"     library="nightmare"     exclude="*.mp3" unless="web"/>
 	
-	<assets path='example_mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
+	<assets path='export/debug/windows/bin/mods' rename='mods' embed='false' if="MODS_ALLOWED"/>
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
 	<!-- <template path='mods' /> -->
 	
