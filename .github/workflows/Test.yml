@@ -63,7 +63,7 @@ jobs:
           haxelib --never install flixel 4.11.0
           haxelib run lime setup flixel
           haxelib install flixel-tools
-          haxelib install flixel-ui
+          haxelib install flixel-ui 2.4.0
           haxelib install flixel-addons 2.11.0
           haxelib install tjson
           haxelib install hxjsonast
@@ -88,6 +88,7 @@ jobs:
           haxelib set openfl 9.1.0
           haxelib set flixel 4.11.0
           haxelib set flixel-addons 2.11.0
+          haxelib set flixel-ui 2.4.0
           haxelib set hxcpp 4.2.1
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
