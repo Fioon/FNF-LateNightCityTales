@@ -397,7 +397,8 @@ class PlayState extends MusicBeatState
 
 	//
 	public function addShaderToCamera(cam:String,effect:ShaderEffect){//STOLE FROM ANDROMEDA AND PSYCH ENGINE 0.5.1 WITH SHADERS
-      
+
+	if(ClientPrefs.shaders == true){
         switch(cam.toLowerCase()) {
 
             case 'camhud' | 'hud':
@@ -416,12 +417,10 @@ class PlayState extends MusicBeatState
                     
                     camGame.setFilters(newCamEffectsGame);
 
-			case 'camnotenormal':
+	    case 'camnotenormal':
 				camNormalNoteShaders.push(effect);
 				newCamEffectsNormalNote.push(new ShaderFilter(effect.shader));
-				camNoteNormal.setFilters(newCamEffectsNormalNote);
-				
-			
+				camNoteNormal.setFilters(newCamEffectsNormalNote);							
             default:
                 if(modchartSprites.exists(cam)) {
                     Reflect.setProperty(modchartSprites.get(cam),"shader",effect.shader);
@@ -433,10 +432,7 @@ class PlayState extends MusicBeatState
                 }
                 
         }
-		
-      
-      
-      
+	}    
   	}
 
   	public function removeShaderFromCamera(cam:String,effect:ShaderEffect){
@@ -487,7 +483,7 @@ class PlayState extends MusicBeatState
 //-----------------------------------------
 
 	public function setGlow(tag:String,color:FlxColor,alpha:Float,blur:Float,strength:Float){
-		
+	   if(ClientPrefs.shaders == true){	
 		switch(tag){
 			case "normal":
 				normalNoteGlowColor=color;
@@ -499,6 +495,7 @@ class PlayState extends MusicBeatState
 				specialNoteGlowBlur= blur;
 				specialNoteGlowStrength= strength;
 		}
+	   }
 	}
 
 
