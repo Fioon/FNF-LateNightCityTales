@@ -15,7 +15,7 @@ jobs:
       - name: Install Libraries
         run: |
           haxelib install hmm --quiet --skip-dependencies
-          haxelib run hmm install --quiet
+          haxelib run hmm install --quiet --skip-dependencies
       - name: Configure Android
         run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
