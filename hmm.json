@@ -1,11 +1,5 @@
 {
-  "dependencies": [   
-  {
-      "name": "discord_rpc",
-      "type": "git",
-      "ref": "master",
-      "url": "https://github.com/Aidan63/linc_discord-rpc"
-    },
+  "dependencies": [
     {
       "name": "linc_luajit",
       "type": "git",
