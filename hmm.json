@@ -1,5 +1,11 @@
 {
   "dependencies": [   
+  {
+      "name": "discord_rpc",
+      "type": "git",
+      "ref": "master",
+      "url": "https://github.com/Aidan63/linc_discord-rpc"
+    },
     {
       "name": "linc_luajit",
       "type": "git",
@@ -32,6 +38,11 @@
       "name": "flixel-ui",
       "type": "haxelib",
       "version": "2.4.0"
+    },
+    {
+      "name": "hxcpp",
+      "type": "haxelib",
+      "version": "4.2.1"
     },
     {
       "name": "hscript",
